@@ -1,4 +1,4 @@
-{% set version = "1.5.1" %}
+{% set version = "1.5.2" %}
 
 package:
   name: fastapi-offline
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/f/fastapi-offline/fastapi_offline-{{ version }}.tar.gz
-    sha256: b9e7a413d8d448b29d13e56cc15a3da01805cbb63451a07c310ae3a8ed968fc2
+    sha256: 6c2c38433f83e62a943487d200a389b001deced2844d2e66be457faa9a1c4791
   - folder: src
     url: https://github.com/turettn/fastapi_offline/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 18efd7b9762dc27b5cb9e58cbc36b6d0c6daf6bf5c7f045b78c59ee5fbfee5f7
+    sha256: 870a119437869585a4b8caa4e762eba7bae475b949cabbb2216a3d8a88637b36
   # third-party licenses
   - fn: fastapi-LICENSE-MIT
     url: https://raw.githubusercontent.com/tiangolo/fastapi/master/LICENSE
@@ -32,11 +32,11 @@ build:
 
 requirements:
   host:
-    - fastapi >=0.75.2
+    - fastapi >=0.75.2,!=0.89.0
     - pip
     - python >=3.7
   run:
-    - fastapi >=0.75.2
+    - fastapi >=0.75.2,!=0.89.0
     - python >=3.7
 
 test:
@@ -47,13 +47,13 @@ test:
   commands:
     - pip check
     - pytest src/tests -vv --cov fastapi_offline --no-cov-on-fail --cov-report=term-missing:skip-covered --cov-fail-under=97
-    - echo "import fastapi_offline; fastapi_offline.FastAPIOffline()" > example.py
-    - mypy --strict example.py
+    - mypy --strict -m fastapi_offline
   requires:
     - mypy
     - pip
     - pytest-cov
     - requests
+    - starlette-full
 
 about:
   home: https://github.com/turettn/fastapi_offline
