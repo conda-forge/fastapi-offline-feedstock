@@ -1,11 +1,11 @@
-About fastapi-offline
-=====================
+About fastapi-offline-feedstock
+===============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/fastapi-offline-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/turettn/fastapi_offline
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/fastapi-offline-feedstock/blob/main/LICENSE.txt)
 
 Summary: FastAPI without reliance on CDNs for docs
 
