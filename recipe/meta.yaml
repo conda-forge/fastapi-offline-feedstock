@@ -1,4 +1,4 @@
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 
 package:
   name: fastapi-offline
@@ -7,10 +7,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/f/fastapi-offline/fastapi_offline-{{ version }}.tar.gz
-    sha256: 6030e78ee9848a57f93c58003ee125f2c321a5831710f171ab1c5150ee3cc898
+    sha256: 4974e55f903dc7b13bc84722a4cd6edeada4021f7061f07dbf241e1617d34aae
   - folder: src
     url: https://github.com/turettn/fastapi_offline/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: 3d8418dfcb68dcbd70a01d5871a72e5b8b6aaab1dc49b817611de841bddc2f0e
+    sha256: 54ef8d5808078e75ee8f283b42d319830ef330f6fc337964ff944dbe6c417557
   # third-party licenses
   - fn: fastapi-LICENSE-MIT
     url: https://raw.githubusercontent.com/tiangolo/fastapi/master/LICENSE
