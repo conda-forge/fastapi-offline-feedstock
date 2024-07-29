@@ -35,6 +35,7 @@ requirements:
     - fastapi >=0.99.0
     - pip
     - python >=3.8
+    - starlette-full
     - websockets >=10.4
   run:
     - fastapi >=0.99.0
