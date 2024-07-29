@@ -36,6 +36,7 @@ requirements:
     - pip
     - python >=3.8
     - starlette-full
+    - watchfiles >=0.13
     - websockets >=10.4
   run:
     - fastapi >=0.99.0
