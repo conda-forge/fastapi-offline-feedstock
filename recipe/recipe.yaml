@@ -2,7 +2,8 @@
 schema_version: 1
 
 context:
-  version: "1.7.5"
+  version: "1.7.6"
+  python_check_max: "3.14"
 
 package:
   name: fastapi-offline
@@ -10,11 +11,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/f/fastapi-offline/fastapi_offline-${{ version }}.tar.gz
-    sha256: 07a58cb8d8fab68ba625698414b4cac833bb2d94d82dc0fbc2a8519bee7af87d
-    target_directory: dist
-  - url: https://github.com/turettn/fastapi_offline/archive/refs/tags/v${{ version }}.tar.gz
-    sha256: dd4b57a2073ed2f023b183fc8fb977a198d08cb05012cb142b2d7be951895af4
-    target_directory: src
+    sha256: c84d08584faa646932951b493106992caa79b838e454f14dd410cef9a1a5e07d
   # third-party licenses
   - url: https://raw.githubusercontent.com/tiangolo/fastapi/master/LICENSE
     sha256: 4ec89ffc81485b97fec584b2d4a961032eeffe834453894fd9c1274906cc744e
@@ -33,7 +30,6 @@ build:
   number: 0
   noarch: python
   script:
-    - cd dist
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
@@ -53,10 +49,10 @@ tests:
       pip_check: true
       python_version:
         - ${{ python_min }}.*
-        - 3.14.*
+        - ${{ python_check_max }}.*
   - files:
       source:
-        - src/tests/
+        - tests/
     requirements:
       run:
         - mypy
@@ -65,19 +61,21 @@ tests:
         - requests
         - starlette-full
     script:
-      - pytest src/tests -vv --cov fastapi_offline --no-cov-on-fail --cov-report=term-missing:skip-covered --cov-fail-under=97
+      - coverage run --source=fastapi_offline --branch -m pytest -vv --tb=long --color=yes
+      - coverage report --show-missing --skip-covered --fail-under=97
       - mypy --strict -m fastapi_offline
 
 about:
   summary: FastAPI without reliance on CDNs for docs
   license: MIT
   license_file:
-    - dist/LICENSE
+    - LICENSE
     - fastapi-LICENSE-MIT
     - redoc-LICENSE-MIT
     - swagger-ui-LICENSE-APACHE-2.0
     - swagger-ui-NOTICE-APACHE-2.0
-  homepage: https://github.com/turettn/fastapi_offline
+  homepage: https://pypi.org/project/fastapi-offline
+  repository: https://github.com/turettn/fastapi_offline
 
 extra:
   recipe-maintainers:

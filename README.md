@@ -3,11 +3,13 @@ About fastapi-offline-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/fastapi-offline-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/turettn/fastapi_offline
+Home: https://pypi.org/project/fastapi-offline
 
 Package license: MIT
 
 Summary: FastAPI without reliance on CDNs for docs
+
+Development: https://github.com/turettn/fastapi_offline
 
 Current build status
 ====================
