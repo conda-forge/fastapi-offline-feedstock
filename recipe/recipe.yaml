@@ -62,7 +62,7 @@ tests:
         - starlette-full
     script:
       - coverage run --source=fastapi_offline --branch -m pytest -vv --tb=long --color=yes
-      - coverage report --show-missing --skip-coered --fail-under=97
+      - coverage report --show-missing --skip-covered --fail-under=97
       - mypy --strict -m fastapi_offline
 
 about:
